@@ -7,6 +7,9 @@ import Input from './components/Input';
 import Person from './components/Person';
 import PersonList from './components/PersonList';
 import Status from './components/Status';
+import Counter from './components/state/Counter';
+import Private from './components/state/Private';
+import Profile from './components/state/Profile';
 import User from './components/state/User';
 
 const App = () => {
@@ -61,6 +64,8 @@ const App = () => {
 				}}
 			/>
 			<User />
+			<Counter />
+			<Private isLoggedIn={false} Component={Profile} />
 		</div>
 	);
 };
