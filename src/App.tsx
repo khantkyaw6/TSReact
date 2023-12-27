@@ -1,7 +1,13 @@
 import './App.css';
+import Button from './components/Button';
+import Container from './components/Container';
 import Greet from './components/Greet';
+import Heading from './components/Heading';
+import Input from './components/Input';
 import Person from './components/Person';
 import PersonList from './components/PersonList';
+import Status from './components/Status';
+import User from './components/state/User';
 
 const App = () => {
 	const personObj = {
@@ -24,12 +30,37 @@ const App = () => {
 		},
 	];
 
+	let SomeText = () => {
+		return <h3>This is some text with style</h3>;
+	};
+
+	const clickHandler = (
+		event: React.MouseEvent<HTMLButtonElement>,
+		id: number
+	) => {
+		console.log(event, id);
+	};
+
 	return (
 		<div>
-			<h1>App</h1>
-			<Greet name='Khant Kyaw' messageCount={20} isLoggedIn={true} />
+			{/* <Greet name='Khant Kyaw' messageCount={20} isLoggedIn={true} />
 			<Person data={personObj} />
-			<PersonList data={personList} />
+			<PersonList data={personList} /> */}
+			<Status status='error' />
+			<Heading>This is Children Text</Heading>
+			<Container
+				style={{ border: '20px', color: 'red', fontSize: '40px' }}
+			>
+				{<SomeText />}
+			</Container>
+			<Button handleClick={(event) => clickHandler(event, 5)} />
+			<Input
+				value=''
+				handleChange={(event) => {
+					console.log(event.target.value);
+				}}
+			/>
+			<User />
 		</div>
 	);
 };
